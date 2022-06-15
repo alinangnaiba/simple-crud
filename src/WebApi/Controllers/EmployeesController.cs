@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 200)]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 400)]
-        [ProducesResponseType(typeof(Core.Response<IEnumerable<ErrorDetails>>), 500)]
+        [ProducesResponseType(typeof(Core.Response<ErrorDetails>), 500)]
         [Produces("application/json")]
         public async Task<IActionResult> GetAll()
         {
@@ -34,7 +34,7 @@ namespace WebApi.Controllers
         /// Gets an employee by Id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Employee</returns>
+        /// <returns>Employee with matching Id</returns>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 200)]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 400)]
@@ -51,11 +51,11 @@ namespace WebApi.Controllers
         /// Get Employees with matching first name
         /// </summary>
         /// <param name="firstName"></param>
-        /// <returns>Employee</returns>
+        /// <returns>List of employees with matching first name</returns>
         [HttpGet("firstname/{firstName}")]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 200)]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 400)]
-        [ProducesResponseType(typeof(Core.Response<IEnumerable<ErrorDetails>>), 500)]
+        [ProducesResponseType(typeof(Core.Response<ErrorDetails>), 500)]
         [Produces("application/json")]
         public async Task<IActionResult> GetEmployeesByFirstName(string firstName)
         {
@@ -67,11 +67,11 @@ namespace WebApi.Controllers
         /// Get Employees with matching middle name
         /// </summary>
         /// <param name="middleName"></param>
-        /// <returns></returns>
+        /// <returns>List of employees with matching middle name</returns>
         [HttpGet("middlename/{middleName}")]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 200)]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 400)]
-        [ProducesResponseType(typeof(Core.Response<IEnumerable<ErrorDetails>>), 500)]
+        [ProducesResponseType(typeof(Core.Response<ErrorDetails>), 500)]
         [Produces("application/json")]
         public async Task<IActionResult> GetEmployeesByMiddleName(string middleName)
         {
@@ -83,11 +83,11 @@ namespace WebApi.Controllers
         /// Get Employees with matching last name
         /// </summary>
         /// <param name="lastName"></param>
-        /// <returns></returns>
+        /// <returns>List of employees with matching last name</returns>
         [HttpGet("lastname/{lastName}")]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 200)]
         [ProducesResponseType(typeof(Core.Response<IEnumerable<EmployeeDto>>), 400)]
-        [ProducesResponseType(typeof(Core.Response<IEnumerable<ErrorDetails>>), 500)]
+        [ProducesResponseType(typeof(Core.Response<ErrorDetails>), 500)]
         [Produces("application/json")]
         public async Task<IActionResult> GetEmployeesByLaststName(string lastName)
         {
@@ -99,7 +99,7 @@ namespace WebApi.Controllers
         /// Create an Employee
         /// </summary>
         /// <param name="dto"></param>
-        /// <returns></returns>
+        /// <returns>Created employee</returns>
         [HttpPost]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 200)]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 400)]
@@ -115,7 +115,7 @@ namespace WebApi.Controllers
         /// Delete Employee by employee Id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Deleted employee</returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 200)]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 400)]
@@ -131,7 +131,7 @@ namespace WebApi.Controllers
         /// Update Employee
         /// </summary>
         /// <param name="dto"></param>
-        /// <returns></returns>
+        /// <returns>Updated employee</returns>
         [HttpPatch]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 200)]
         [ProducesResponseType(typeof(Core.Response<EmployeeDto>), 400)]
