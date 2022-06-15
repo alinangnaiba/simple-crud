@@ -33,7 +33,7 @@ namespace Infrastructure.Middleware
         {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            var response = Response.Fail<ErrorDetails>(ex.Message);
+            var response = Response.Fail<ErrorDetails>("Something went wrong when processing request");
 
             await context.Response.WriteAsync(response.ToString());
         }
